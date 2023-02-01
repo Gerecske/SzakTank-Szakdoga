@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SzakTank2._0.Properties;
@@ -17,7 +18,7 @@ namespace SzakTank2._0
     public partial class UCMain : UserControl
     {
         public string UserName;
-        public Button BtnStart;
+        public PictureBox pixStart;
         public UCMain(string User)
         {
             InitializeComponent();
@@ -29,85 +30,126 @@ namespace SzakTank2._0
         private void DrawMap()
         {
             Random r = new Random();
-            for (int i = 0; i < 56; i++)
+            for (int i = 0; i < 64; i++)
             {
-                Button btnTemp = new Button();
+                PictureBox picTemp = new PictureBox();
 
-                btnTemp.Margin = new Padding(0);
-                btnTemp.Name = "btn ";
-                btnTemp.Size = new System.Drawing.Size(50, 50);
-                btnTemp.TabIndex = 0;
-                btnTemp.Text = "";
-                btnTemp.UseVisualStyleBackColor = true;
+                picTemp.Margin = new Padding(0);
+                picTemp.Name = "picBox" + i;
+                picTemp.Size = new System.Drawing.Size(48, 48);
+                picTemp.TabIndex = 0;
+                picTemp.Text = "";
 
                 switch (r.Next(0, 5))
                 {
                     case 0:
-                        btnTemp.BackColor = Color.Brown;
+                        picTemp.BackColor = Color.Brown;
                         break;
                     case 1:
-                        btnTemp.BackColor = Color.Gray;
+                        picTemp.BackColor = Color.Gray;
                         break;
                     default:
-                        btnTemp.BackColor = Color.Green;
+                        picTemp.BackColor = Color.Green;
                         break;
 
                 }
 
-                fLP_Main.Controls.Add(btnTemp);
+                fLP_Main.Controls.Add(picTemp);
 
                 if (i == 50)
                 {
-                    BtnStart = btnTemp;
+                    pixStart = picTemp;
                 }
             }
         }
 
         private void button_RunCode_Click(object sender, EventArgs e)
         {
-            if (textBox_Code.Text != null)
+            //if (textBox_Code.Text != null)
+            //{
+            //    List<Command> commands = new List<Command>();
+            //    string code = textBox_Code.Text;
+            //    string[] lines = code.Split(';');
+            //    int x = 0;
+            //    int y = 0;
+            //    for (int i = 0; i < lines.Length - 1; i++)
+            //    {
+            //        commands.Add(new Command()
+            //        {
+            //            CommandName = lines[i].Substring(0, lines[i].IndexOf('(')),
+            //            CommandValue = Convert.ToInt32(lines[i].Substring(lines[i].IndexOf('(') + 1, lines[i].IndexOf(')') - lines[i].IndexOf('(') - 1))
+            //        });
+            //    }
+            //    string err = "";
+            //    foreach (var com in commands)
+            //    {
+            //        err += com.CommandName + " " + com.CommandValue;
+            //        switch (com.CommandName)
+            //        {
+            //            case "Előre":
+            //                x += com.CommandValue;
+            //                break;
+            //            case "Hátra":
+            //                x -= com.CommandValue;
+            //                break;
+            //            case "Jobbra":
+            //                y += com.CommandValue;
+            //                break;
+            //            case "Balra":
+            //                y -= com.CommandValue;
+            //                break;
+            //        }
+            //    }
+            //    label_Error.Text = err;
+            //    DraweTank(x, y);
+            //}
+
+
+
+            int x, y;
+            x = y = 0;
+            string code = textBox_Code.Text;
+            string[] commands = code.Split(';');
+
+            foreach (string command in commands)
             {
-                List<Command> commands = new List<Command>();
-                string code = textBox_Code.Text;
-                string[] lines = code.Split(';');
-                int x = 0;
-                int y = 0;
-                for (int i = 0; i < lines.Length - 1; i++)
+                string trimmedCommand = command.Trim();
+                Match match = Regex.Match(trimmedCommand, @"\(([^)]+)\)");
+
+                if (match.Success)
                 {
-                    commands.Add(new Command()
+                    string value = match.Groups[1].Value;
+                    int intValue = int.Parse(value);
+                    MessageBox.Show(value);
+
+                    switch (trimmedCommand.ToLower().Split('(')[0].Trim())
                     {
-                        CommandName = lines[i].Substring(0, lines[i].IndexOf('(')),
-                        CommandValue = Convert.ToInt32(lines[i].Substring(lines[i].IndexOf('(') + 1, lines[i].IndexOf(')') - lines[i].IndexOf('(') - 1))
-                    });
-                }
-                string err = "";
-                foreach (var com in commands)
-                {
-                    err += com.CommandName + " " + com.CommandValue;
-                    switch (com.CommandName)
-                    {
-                        case "Előre":
-                            x += com.CommandValue;
+                        case "erlőre":
+                            // Perform action for "erlőre" with value "intValue"
+                            y += intValue;
                             break;
-                        case "Hátra":
-                            x -= com.CommandValue;
+                        case "jobbra":
+                            // Perform action for "jobra" with value "intValue"
+                            x += intValue;
                             break;
-                        case "Jobbra":
-                            y += com.CommandValue;
+                        case "balra":
+                            // Perform action for "balra" with value "intValue"
+                            x -= intValue;
                             break;
-                        case "Balra":
-                            y -= com.CommandValue;
+                        default:
+                            // Handle unknown command
                             break;
                     }
                 }
-                label_Error.Text = err;
-                DraweTank(x, y);
             }
+            //DraweTank(x, y);
+            MessageBox.Show($"Posi x: {x}, y: {y}");
+
         }
 
         private void setTankColor()
         {
-            //Image TankImage;
+            Image TankImage;
             Color c = new Color();
             SqlConnection con = new SqlConnection(Resources.ConnString);
             con.Open();
@@ -119,21 +161,22 @@ namespace SzakTank2._0
             {
                 case 2:
                     //set color to blue
-                    //TankImage = Resources.TankBlue;
+                    TankImage = Resources.TankBlue;
                     c = Color.Blue;
                     break;
                 case 3:
                     //yellow
-                    //TankImage = Resources.TankYellow;
+                    TankImage = Resources.TankYellow;
                     c = Color.Yellow;
                     break;
                 default:
                     //red
-                    //TankImage = Resources.TankRed;
+                    TankImage = Resources.TankRed;
                     c = Color.Red;
                     break;
             }
-            BtnStart.BackColor = c;
+            //pixStart.BackColor = c;
+            pixStart.Image = Image.FromFile("C:\\Users\\szilg\\source\\repos\\SzakTank2.0\\Resources\\TankFullSmall.png");
         }
 
         private void DraweTank(int x, int y)

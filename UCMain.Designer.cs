@@ -31,12 +31,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox_Code = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tLP = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button_RunCode = new System.Windows.Forms.Button();
-            this.label_Error = new System.Windows.Forms.Label();
             this.fLP_Main = new System.Windows.Forms.FlowLayoutPanel();
+            this.label_Error = new System.Windows.Forms.Label();
+            this.button_RunCode = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tLP = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLP.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,62 @@
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 0;
             // 
+            // fLP_Main
+            // 
+            this.fLP_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fLP_Main.Location = new System.Drawing.Point(291, 46);
+            this.fLP_Main.Name = "fLP_Main";
+            this.fLP_Main.Size = new System.Drawing.Size(426, 387);
+            this.fLP_Main.TabIndex = 4;
+            // 
+            // label_Error
+            // 
+            this.label_Error.AutoSize = true;
+            this.label_Error.Location = new System.Drawing.Point(291, 436);
+            this.label_Error.Name = "label_Error";
+            this.label_Error.Size = new System.Drawing.Size(0, 15);
+            this.label_Error.TabIndex = 3;
+            // 
+            // button_RunCode
+            // 
+            this.button_RunCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_RunCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_RunCode.Location = new System.Drawing.Point(3, 439);
+            this.button_RunCode.Name = "button_RunCode";
+            this.button_RunCode.Size = new System.Drawing.Size(282, 38);
+            this.button_RunCode.TabIndex = 2;
+            this.button_RunCode.Text = "Futtatás";
+            this.button_RunCode.UseVisualStyleBackColor = true;
+            this.button_RunCode.Click += new System.EventHandler(this.button_RunCode_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(282, 43);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Kód:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(3, 46);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(282, 387);
+            this.textBox1.TabIndex = 0;
+            // 
             // tLP
             // 
             this.tLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -89,67 +145,11 @@
             this.tLP.Location = new System.Drawing.Point(0, 0);
             this.tLP.Name = "tLP";
             this.tLP.RowCount = 3;
-            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82F));
+            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tLP.Size = new System.Drawing.Size(720, 480);
             this.tLP.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 51);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 378);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 48);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Kód:";
-            // 
-            // button_RunCode
-            // 
-            this.button_RunCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_RunCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_RunCode.Location = new System.Drawing.Point(3, 435);
-            this.button_RunCode.Name = "button_RunCode";
-            this.button_RunCode.Size = new System.Drawing.Size(282, 42);
-            this.button_RunCode.TabIndex = 2;
-            this.button_RunCode.Text = "Futtatás";
-            this.button_RunCode.UseVisualStyleBackColor = true;
-            this.button_RunCode.Click += new System.EventHandler(this.button_RunCode_Click);
-            // 
-            // label_Error
-            // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Location = new System.Drawing.Point(291, 432);
-            this.label_Error.Name = "label_Error";
-            this.label_Error.Size = new System.Drawing.Size(0, 15);
-            this.label_Error.TabIndex = 3;
-            // 
-            // fLP_Main
-            // 
-            this.fLP_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fLP_Main.Location = new System.Drawing.Point(291, 51);
-            this.fLP_Main.Name = "fLP_Main";
-            this.fLP_Main.Size = new System.Drawing.Size(426, 378);
-            this.fLP_Main.TabIndex = 4;
             // 
             // UCMain
             // 
@@ -171,11 +171,11 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox textBox_Code;
         private Label label1;
-        private TableLayoutPanel tLP;
-        private TextBox textBox1;
-        private Button button_RunCode;
-        private Label label_Error;
-        private Label label2;
         private FlowLayoutPanel fLP_Main;
+        private Label label_Error;
+        private Button button_RunCode;
+        private Label label2;
+        private TextBox textBox1;
+        private TableLayoutPanel tLP;
     }
 }
