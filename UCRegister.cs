@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using SzakTank2._0.Properties;
 
 namespace SzakTank2._0
@@ -51,10 +52,16 @@ namespace SzakTank2._0
                         color = 3;
                     }
 
+                    //EncryptPassword
+                    string password = tBRPass.Text;
+                    using SHA256 sha256 = SHA256.Create();
+                    byte[] buffer = Encoding.ASCII.GetBytes(password);
+                    byte[] hashValue = sha256.ComputeHash(buffer);
+
                     //if so, insert the new user into the database
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO Jatekos (Felhasznalonev, Jelszo, Szin) VALUES (@Username, @Password, @Color)", con);
                     cmd2.Parameters.AddWithValue("@Username", tBRUser.Text);
-                    cmd2.Parameters.AddWithValue("@Password", tBRPass.Text);
+                    cmd2.Parameters.AddWithValue("@Password", hashValue);
                     cmd2.Parameters.AddWithValue("@Color", color);
                     cmd2.ExecuteNonQuery();
                     MessageBox.Show("Sikeres regisztráció!");

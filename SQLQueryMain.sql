@@ -1,7 +1,7 @@
 ﻿CREATE TABLE Jatekos (
 	Felhasznalonev VARCHAR(30) NOT NULL,
-	Jelszo VARCHAR(30),
-	Szin INT,
+	Jelszo BINARY(64) NOT NULL,
+	Szin INT NOT NULL
 	PRIMARY KEY (Felhasznalonev)
 );
 

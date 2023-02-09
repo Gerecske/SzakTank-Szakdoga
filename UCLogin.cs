@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using SzakTank2._0.Properties;
 
 namespace SzakTank2._0
@@ -28,12 +29,19 @@ namespace SzakTank2._0
 
         private void btnLoginL_Click(object sender, EventArgs e)
         {
+
+            using SHA256 sha256 = SHA256.Create();
+
+            byte[] buffer = Encoding.ASCII.GetBytes(tBLPass.Text);
+
+            byte[] hashValue = sha256.ComputeHash(buffer);
+
             //check is if username and password is correct
             SqlConnection con = new SqlConnection(Resources.ConnString);
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Jatekos WHERE Felhasznalonev = @Username AND Jelszo = @Password", con);
             cmd.Parameters.AddWithValue("@Username", tBLUser.Text);
-            cmd.Parameters.AddWithValue("@Password", tBLPass.Text);
+            cmd.Parameters.AddWithValue("@Password", hashValue);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
