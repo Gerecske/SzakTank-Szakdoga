@@ -22,14 +22,15 @@ namespace SzakTank2._0
         public UCMain(string User)
         {
             InitializeComponent();
-            DrawMap();
+            GenerateMap();
             UserName = User;
             setTankColor();
         }
 
-        private void DrawMap()
+        private void GenerateMap()
         {
             Random r = new Random();
+            char[] mapValue = new char[64];
             for (int i = 0; i < 64; i++)
             {
                 PictureBox picTemp = new PictureBox();
@@ -44,12 +45,15 @@ namespace SzakTank2._0
                 {
                     case 0:
                         picTemp.BackColor = Color.Brown;
+                        mapValue[i] = 'B';
                         break;
                     case 1:
                         picTemp.BackColor = Color.Gray;
+                        mapValue[i] = 'R';
                         break;
                     default:
                         picTemp.BackColor = Color.Green;
+                        mapValue[i] = 'G';
                         break;
 
                 }
@@ -61,6 +65,17 @@ namespace SzakTank2._0
                     pixStart = picTemp;
                 }
             }
+            string StrMap = new string(mapValue);
+
+            //uploadd to DB
+            SqlConnection con = new SqlConnection(Resources.ConnString);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Terkep (Nev, TerkepMap, Pont) VALUES (@Nev, @TerkepMap, @Pont)", con);
+            cmd.Parameters.AddWithValue("@Nev", "NévtelenMap");
+            cmd.Parameters.AddWithValue("@TerkepMap", StrMap);
+            cmd.Parameters.AddWithValue("@Pont", 0);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void button_RunCode_Click(object sender, EventArgs e)
