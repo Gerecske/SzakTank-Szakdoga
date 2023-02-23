@@ -35,7 +35,7 @@
             this.label_Error = new System.Windows.Forms.Label();
             this.button_RunCode = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCode = new System.Windows.Forms.TextBox();
             this.tLP = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLP.SuspendLayout();
@@ -119,16 +119,16 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Kód:";
             // 
-            // textBox1
+            // tbCode
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tbCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 46);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 387);
-            this.textBox1.TabIndex = 0;
+            this.tbCode.Location = new System.Drawing.Point(3, 46);
+            this.tbCode.Multiline = true;
+            this.tbCode.Name = "tbCode";
+            this.tbCode.Size = new System.Drawing.Size(282, 387);
+            this.tbCode.TabIndex = 0;
             // 
             // tLP
             // 
@@ -136,7 +136,7 @@
             this.tLP.ColumnCount = 2;
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tLP.Controls.Add(this.textBox1, 0, 1);
+            this.tLP.Controls.Add(this.tbCode, 0, 1);
             this.tLP.Controls.Add(this.label2, 0, 0);
             this.tLP.Controls.Add(this.button_RunCode, 0, 2);
             this.tLP.Controls.Add(this.label_Error, 1, 2);
@@ -175,7 +175,7 @@
         private Label label_Error;
         private Button button_RunCode;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox tbCode;
         private TableLayoutPanel tLP;
     }
 }

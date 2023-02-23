@@ -18,19 +18,25 @@ namespace SzakTank2._0
     public partial class UCMain : UserControl
     {
         public string UserName;
-        public PictureBox pixStart;
+        public PictureBox[,] picBoxT = new PictureBox[8, 8];
+        public Image TankImg;
+        public int x = 0, y = 0;
+        public int oldx = 0, oldy = 0;
         public UCMain(string User)
         {
             InitializeComponent();
             GenerateMap();
             UserName = User;
             setTankColor();
+            DrawTank(0, 0);
         }
 
         private void GenerateMap()
         {
             Random r = new Random();
             char[] mapValue = new char[64];
+            int mx = 0, my = 0;
+
             for (int i = 0; i < 64; i++)
             {
                 PictureBox picTemp = new PictureBox();
@@ -57,14 +63,19 @@ namespace SzakTank2._0
                         break;
 
                 }
+                picBoxT[mx,my] = picTemp;
+                mx++;
+                if (mx == 8)
+                {
+                    mx = 0;
+                    my++;
+                }
+
+
 
                 fLP_Main.Controls.Add(picTemp);
-
-                if (i == 50)
-                {
-                    pixStart = picTemp;
-                }
             }
+
             string StrMap = new string(mapValue);
 
             //uploadd to DB
@@ -80,50 +91,8 @@ namespace SzakTank2._0
 
         private void button_RunCode_Click(object sender, EventArgs e)
         {
-            //if (textBox_Code.Text != null)
-            //{
-            //    List<Command> commands = new List<Command>();
-            //    string code = textBox_Code.Text;
-            //    string[] lines = code.Split(';');
-            //    int x = 0;
-            //    int y = 0;
-            //    for (int i = 0; i < lines.Length - 1; i++)
-            //    {
-            //        commands.Add(new Command()
-            //        {
-            //            CommandName = lines[i].Substring(0, lines[i].IndexOf('(')),
-            //            CommandValue = Convert.ToInt32(lines[i].Substring(lines[i].IndexOf('(') + 1, lines[i].IndexOf(')') - lines[i].IndexOf('(') - 1))
-            //        });
-            //    }
-            //    string err = "";
-            //    foreach (var com in commands)
-            //    {
-            //        err += com.CommandName + " " + com.CommandValue;
-            //        switch (com.CommandName)
-            //        {
-            //            case "Előre":
-            //                x += com.CommandValue;
-            //                break;
-            //            case "Hátra":
-            //                x -= com.CommandValue;
-            //                break;
-            //            case "Jobbra":
-            //                y += com.CommandValue;
-            //                break;
-            //            case "Balra":
-            //                y -= com.CommandValue;
-            //                break;
-            //        }
-            //    }
-            //    label_Error.Text = err;
-            //    DraweTank(x, y);
-            //}
 
-
-
-            int x, y;
-            x = y = 0;
-            string code = textBox_Code.Text;
+            string code = tbCode.Text;
             string[] commands = code.Split(';');
 
             foreach (string command in commands)
@@ -135,16 +104,15 @@ namespace SzakTank2._0
                 {
                     string value = match.Groups[1].Value;
                     int intValue = int.Parse(value);
-                    MessageBox.Show(value);
 
                     switch (trimmedCommand.ToLower().Split('(')[0].Trim())
                     {
-                        case "erlőre":
+                        case "előre":
                             // Perform action for "erlőre" with value "intValue"
                             y += intValue;
                             break;
                         case "jobbra":
-                            // Perform action for "jobra" with value "intValue"
+                            // Perform action for "jobbra" with value "intValue"
                             x += intValue;
                             break;
                         case "balra":
@@ -157,7 +125,7 @@ namespace SzakTank2._0
                     }
                 }
             }
-            //DraweTank(x, y);
+            DrawTank(x, y);
             MessageBox.Show($"Posi x: {x}, y: {y}");
 
         }
@@ -191,12 +159,14 @@ namespace SzakTank2._0
                     break;
             }
             //pixStart.BackColor = c;
-            pixStart.Image = Image.FromFile("C:\\Users\\szilg\\source\\repos\\SzakTank2.0\\Resources\\TankFullSmall.png");
+            TankImg = Image.FromFile("C:\\Users\\szilg\\source\\repos\\SzakTank2.0\\Resources\\TankFullSmall.png");
         }
 
-        private void DraweTank(int x, int y)
+        private void DrawTank(int x, int y)
         {
-            MessageBox.Show($"Posi x: {x}, y: {y}");
+            picBoxT[oldx, oldy].Image = null;
+            picBoxT[x, y].Image = TankImg;
+            oldx = x; oldy = y;
         }
     }
 }
