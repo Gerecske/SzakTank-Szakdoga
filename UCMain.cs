@@ -22,9 +22,9 @@ namespace SzakTank2._0
         public Image TankImage = Resources.TankRed;
         public int x = 0, y = 0;
         public int oldx = 0, oldy = 0;
+        public int mapID;
         public enum Direction { North, South, East, West };
         Direction direction = Direction.North;
-        bool NeedsToRotate = false;
         public UCMain(string User)
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace SzakTank2._0
             cmd.Parameters.AddWithValue("@TerkepMap", StrMap);
             cmd.Parameters.AddWithValue("@Pont", 0);
             con.Open();
-            cmd.ExecuteNonQuery();
+            mapID = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
         }
 
@@ -115,15 +115,7 @@ namespace SzakTank2._0
                             if ((y - intValue) >= 0)
                             {
                                 y -= intValue;
-                                if (direction == Direction.North)
-                                {
-                                    NeedsToRotate = false;
-                                }
-                                else
-                                {
-                                    direction = Direction.North;
-                                    NeedsToRotate = true;
-                                }
+                                direction = Direction.North;
                             }
                             else
                             {
@@ -135,15 +127,7 @@ namespace SzakTank2._0
                             if ((y + intValue) <= 8)
                             {
                                 y += intValue;
-                                if (direction == Direction.South)
-                                {
-                                    NeedsToRotate = false;
-                                }
-                                else
-                                {
-                                    direction = Direction.South;
-                                    NeedsToRotate = true;
-                                }
+                                direction = Direction.South;
                             }
                             else
                             {
@@ -155,15 +139,7 @@ namespace SzakTank2._0
                             if ((x + intValue) <= 8)
                             {
                                 x += intValue;
-                                if (direction == Direction.East)
-                                {
-                                    NeedsToRotate = false;
-                                }
-                                else
-                                {
-                                    direction = Direction.East;
-                                    NeedsToRotate = true;
-                                }
+                                direction = Direction.East;
                             }
                             else
                             {
@@ -175,15 +151,7 @@ namespace SzakTank2._0
                             if ((x - intValue) >= 0)
                             {
                                 x -= intValue;
-                                if (direction == Direction.West)
-                                {
-                                    NeedsToRotate = false;
-                                }
-                                else
-                                {
-                                    direction = Direction.West;
-                                    NeedsToRotate = true;
-                                }
+                                direction = Direction.West;
                             }
                             else
                             {
@@ -196,8 +164,10 @@ namespace SzakTank2._0
                     }
                 }
             }
+            LogMoveToDB();
             DrawTank(x, y, direction);
-            MessageBox.Show($"Posi x: {x}, y: {y}");
+
+            MessageBox.Show($"Posi x: {x}, y: {y}, direction: {direction}");
 
         }
 
@@ -234,27 +204,39 @@ namespace SzakTank2._0
         private void DrawTank(int x, int y, Direction dir)
         {
             Image TankImgToUse = new Bitmap(TankImage);
-            if (NeedsToRotate)
+            switch (dir)
             {
-                switch (dir)
-                {
-                    case Direction.North:
-                        // No rotation needed for North direction
-                        break;
-                    case Direction.South:
-                        TankImgToUse.RotateFlip(RotateFlipType.Rotate180FlipNone);
-                        break;
-                    case Direction.East:
-                        TankImgToUse.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                        break;
-                    case Direction.West:
-                        TankImgToUse.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                        break;
-                }
+                case Direction.North:
+                    // No rotation needed for North direction
+                    break;
+                case Direction.South:
+                    TankImgToUse.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                    break;
+                case Direction.East:
+                    TankImgToUse.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    break;
+                case Direction.West:
+                    TankImgToUse.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    break;
             }
             picBoxT[oldx, oldy].Image = null;
             picBoxT[x, y].Image = TankImgToUse;
             oldx = x; oldy = y;
+        }
+
+        private void LogMoveToDB()
+        {
+            string lepes = $"X:{oldx} Y:{oldy} X:{x} Y:{y}";
+
+            MessageBox.Show(lepes);
+            SqlConnection con = new SqlConnection(Resources.ConnString);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Lepesek (TerkepID, Felhasznalonev, Lepes) VALUES (@TerkepID, @Felhasznalonv, @Lepes)", con);
+            cmd.Parameters.AddWithValue("@TerkepID", mapID);
+            cmd.Parameters.AddWithValue("@Felhasznalonv", UserName);
+            cmd.Parameters.AddWithValue("@Lepes", lepes);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

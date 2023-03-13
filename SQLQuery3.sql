@@ -1,1 +1,1 @@
-﻿select * FROM Jatekos;
+﻿select * FROM Terkep;
