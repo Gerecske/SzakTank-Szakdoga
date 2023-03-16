@@ -49,22 +49,29 @@ namespace SzakTank2._0
                 picTemp.Size = new System.Drawing.Size(48, 48);
                 picTemp.TabIndex = 0;
                 picTemp.Text = "";
-
-                switch (r.Next(0, 5))
+                if(i == 0)
                 {
-                    case 0:
-                        picTemp.BackColor = Color.Brown;
-                        mapValue[i] = 'B';
-                        break;
-                    case 1:
-                        picTemp.BackColor = Color.Gray;
-                        mapValue[i] = 'R';
-                        break;
-                    default:
-                        picTemp.BackColor = Color.Green;
-                        mapValue[i] = 'G';
-                        break;
+                    picTemp.BackColor = Color.Green;
+                    mapValue[i] = 'G';
+                }
+                else
+                {
+                    switch (r.Next(0, 5))
+                    {
+                        case 0:
+                            picTemp.BackColor = Color.Brown;
+                            mapValue[i] = 'B';
+                            break;
+                        case 1:
+                            picTemp.BackColor = Color.Black;
+                            mapValue[i] = 'R';
+                            break;
+                        default:
+                            picTemp.BackColor = Color.Green;
+                            mapValue[i] = 'G';
+                            break;
 
+                    }
                 }
                 picBoxT[mx,my] = picTemp;
                 mx++;
@@ -112,7 +119,7 @@ namespace SzakTank2._0
                     {
                         case "fel":
                             // Perform action for "erlőre" with value "intValue"
-                            if ((y - intValue) >= 0)
+                            if ((y - intValue) >= 0 && picBoxT[x, (y - intValue)].BackColor != Color.Black)
                             {
                                 y -= intValue;
                                 direction = Direction.North;
@@ -124,7 +131,7 @@ namespace SzakTank2._0
                             break;
                         case "le":
                             // Perform action for "le" with value "intValue"
-                            if ((y + intValue) <= 8)
+                            if ((y + intValue) <= 8 && picBoxT[x, (y + intValue)].BackColor != Color.Black)
                             {
                                 y += intValue;
                                 direction = Direction.South;
@@ -136,7 +143,7 @@ namespace SzakTank2._0
                             break;
                         case "jobbra":
                             // Perform action for "jobbra" with value "intValue"
-                            if ((x + intValue) <= 8)
+                            if ((x + intValue) <= 8 && picBoxT[(x + intValue), y].BackColor != Color.Black)
                             {
                                 x += intValue;
                                 direction = Direction.East;
@@ -148,7 +155,7 @@ namespace SzakTank2._0
                             break;
                         case "balra":
                             // Perform action for "balra" with value "intValue"
-                            if ((x - intValue) >= 0)
+                            if ((x - intValue) >= 0 && picBoxT[(x - intValue), y].BackColor != Color.Black)
                             {
                                 x -= intValue;
                                 direction = Direction.West;
@@ -157,6 +164,9 @@ namespace SzakTank2._0
                             {
                                 MessageBox.Show("Nem tudsz tovább menni!");
                             }
+                            break;
+                        case "lő":
+                            Shoot(x, y, direction);
                             break;
                         default:
                             MessageBox.Show("Nem megfelelő parancs! " + trimmedCommand.ToLower().Split('(')[0].Trim());
@@ -167,13 +177,102 @@ namespace SzakTank2._0
             LogMoveToDB();
             DrawTank(x, y, direction);
 
-            MessageBox.Show($"Posi x: {x}, y: {y}, direction: {direction}");
+            //MessageBox.Show($"Posi x: {x}, y: {y}, direction: {direction}");
+
+        }
+
+        private void Shoot(int x, int y, Direction dir)
+        {
+            int sx = 0, sy = 0;
+            int oldSx = 0, oldSy = 0;
+            bool wall = false;
+            Image BulletImgToUse = new Bitmap(TankImage);
+
+            switch (dir)
+            {
+                case Direction.North:
+                    // No rotation needed for North direction
+                    if ((y - 1) >= 0 && picBoxT[x, (y - 1)].BackColor != Color.Black)
+                    {
+                        sx = x;
+                        sy = y - 1;
+                    }
+                    else
+                    {
+                        wall = true;
+                    }
+                    break;
+                case Direction.South:     
+                    if ((y + 1) <= 8 && picBoxT[x, (y + 1)].BackColor != Color.Black)
+                    {
+                        sx = x;
+                        sy = y + 1;
+                    }
+                    else
+                    {
+                        wall = true;
+                        break;
+                    }
+                    BulletImgToUse.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                    break;
+                case Direction.East:
+                    if ((x + 1) <= 8 && picBoxT[(x + 1), y].BackColor != Color.Black)
+                    {
+                        sx = x + 1;
+                        sy = y;
+                    }
+                    else
+                    {
+                        wall = true;
+                        break;
+                    }
+                    BulletImgToUse.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    break;
+                case Direction.West:
+                    if ((x - 1) >= 0 && picBoxT[(x - 1), y].BackColor != Color.Black)
+                        {
+                        sx = x + 1;
+                        sy = y;
+                    }
+                    else
+                    {
+                        wall = true;
+                        break;
+                    }
+                    BulletImgToUse.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    break;
+            }
+            if (wall == true)
+            {
+                MessageBox.Show("A falba nem lehet lőni!");
+            }
+            bool started = true;
+            MessageBox.Show("While elöttig eljutottunk");
+            while (((y - 1) >= 0 && picBoxT[x, (y - 1)].BackColor != Color.Black) &&
+                   ((y + 1) <= 8 && picBoxT[x, (y + 1)].BackColor != Color.Black) &&
+                   ((x + 1) <= 8 && picBoxT[(x + 1), y].BackColor != Color.Black) &&
+                   ((x - 1) >= 0 && picBoxT[(x - 1), y].BackColor != Color.Black) &&
+                   wall == false)
+            {
+                MessageBox.Show("Whileba bejutottunk");
+                if (started)
+                {
+                    started = false;
+                }
+                else
+                {
+                    picBoxT[oldSx, oldSy].Image = null;
+                }
+                picBoxT[sx, sy].Image = BulletImgToUse;
+                oldSx = sx;
+                oldSy = sy;
+                Task.Delay(500).Wait();
+            }
 
         }
 
         private void setTankColor()
         {
-            Color c = new Color();
             SqlConnection con = new SqlConnection(Resources.ConnString);
             con.Open();
             //check if the username is already taken
@@ -185,20 +284,16 @@ namespace SzakTank2._0
                 case 2:
                     //set color to blue
                     TankImage = Resources.TankBlue;
-                    c = Color.Blue;
                     break;
                 case 3:
                     //yellow
                     TankImage = Resources.TankYellow;
-                    c = Color.Yellow;
                     break;
                 default:
                     //red
                     TankImage = Resources.TankRed;
-                    c = Color.Red;
                     break;
             }
-            //pixStart.BackColor = c;
         }
 
         private void DrawTank(int x, int y, Direction dir)
@@ -228,7 +323,8 @@ namespace SzakTank2._0
         {
             string lepes = $"X:{oldx} Y:{oldy} X:{x} Y:{y}";
 
-            MessageBox.Show(lepes);
+            //MessageBox.Show(lepes);
+
             SqlConnection con = new SqlConnection(Resources.ConnString);
             SqlCommand cmd = new SqlCommand("INSERT INTO Lepesek (TerkepID, Felhasznalonev, Lepes) VALUES (@TerkepID, @Felhasznalonv, @Lepes)", con);
             cmd.Parameters.AddWithValue("@TerkepID", mapID);
