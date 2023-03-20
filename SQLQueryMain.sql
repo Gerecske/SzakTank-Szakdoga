@@ -1,4 +1,6 @@
-﻿CREATE TABLE Jatekos (
+﻿CREATE DATABASE [SzakTank];
+
+CREATE TABLE Jatekos (
 	Felhasznalonev VARCHAR(30) NOT NULL,
 	Jelszo BINARY(64) NOT NULL,
 	Szin INT NOT NULL
