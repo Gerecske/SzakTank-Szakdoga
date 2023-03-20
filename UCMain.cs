@@ -95,7 +95,7 @@ namespace SzakTank2._0
             cmd.Parameters.AddWithValue("@TerkepMap", StrMap);
             cmd.Parameters.AddWithValue("@Pont", 0);
             con.Open();
-            mapID = Convert.ToInt32(cmd.ExecuteScalar());
+            //mapID = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
         }
 
@@ -166,7 +166,7 @@ namespace SzakTank2._0
                             }
                             break;
                         case "lő":
-                            Shoot(x, y, direction);
+                            //Shoot(x, y, direction);
                             break;
                         default:
                             MessageBox.Show("Nem megfelelő parancs! " + trimmedCommand.ToLower().Split('(')[0].Trim());
