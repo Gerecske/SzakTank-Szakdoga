@@ -166,7 +166,7 @@ namespace SzakTank2._0
                             }
                             break;
                         case "lő":
-                            //Shoot(x, y, direction);
+                            Shoot(x, y, direction);
                             break;
                         default:
                             MessageBox.Show("Nem megfelelő parancs! " + trimmedCommand.ToLower().Split('(')[0].Trim());
