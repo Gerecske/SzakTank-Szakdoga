@@ -23,6 +23,7 @@ namespace SzakTank2._0
         public int x = 0, y = 0;
         public int oldx = 0, oldy = 0;
         public int mapID;
+        public int partCount = 0;
         public enum Direction { North, South, East, West };
         Direction direction = Direction.North;
         public UCMain(string User)
@@ -56,18 +57,22 @@ namespace SzakTank2._0
                 }
                 else
                 {
-                    switch (r.Next(0, 5))
+                    switch (r.Next(0, 100))
                     {
-                        case 0:
-                            picTemp.BackColor = Color.Brown;
+                        case < 20:
+                            picTemp.BackColor = Color.Red; // 20%
                             mapValue[i] = 'B';
                             break;
-                        case 1:
-                            picTemp.BackColor = Color.Black;
+                        case < 40:
+                            picTemp.BackColor = Color.Black; // 20%
                             mapValue[i] = 'R';
                             break;
+                        case < 50:
+                            picTemp.BackColor = Color.Yellow; //PART 10%
+                            mapValue[i] = 'P';
+                            break;
                         default:
-                            picTemp.BackColor = Color.Green;
+                            picTemp.BackColor = Color.Green; // 50%
                             mapValue[i] = 'G';
                             break;
 
@@ -95,7 +100,7 @@ namespace SzakTank2._0
             cmd.Parameters.AddWithValue("@TerkepMap", StrMap);
             cmd.Parameters.AddWithValue("@Pont", 0);
             con.Open();
-            //mapID = Convert.ToInt32(cmd.ExecuteScalar());
+            mapID = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
         }
 
@@ -319,6 +324,18 @@ namespace SzakTank2._0
             }
             picBoxT[oldx, oldy].Image = null;
             picBoxT[x, y].Image = TankImgToUse;
+            if (picBoxT[x, y].BackColor == Color.Yellow)
+            {
+                partCount++;
+                lblPoints.Text = "Pontok:" + partCount;
+                picBoxT[x, y].BackColor = Color.Green;
+            }
+            if (picBoxT[x, y].BackColor == Color.Red)
+            {
+                partCount = 0;
+                lblPoints.Text = "Pontok:" + partCount;
+                picBoxT[x, y].BackColor = Color.Green;
+            }
             oldx = x; oldy = y;
         }
 

@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tLP = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPoints = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLP.SuspendLayout();
             this.SuspendLayout();
@@ -141,6 +142,7 @@
             this.tLP.Controls.Add(this.button_RunCode, 0, 2);
             this.tLP.Controls.Add(this.label_Error, 1, 2);
             this.tLP.Controls.Add(this.fLP_Main, 1, 1);
+            this.tLP.Controls.Add(this.lblPoints, 1, 0);
             this.tLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLP.Location = new System.Drawing.Point(0, 0);
             this.tLP.Name = "tLP";
@@ -150,6 +152,16 @@
             this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tLP.Size = new System.Drawing.Size(720, 480);
             this.tLP.TabIndex = 2;
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPoints.Location = new System.Drawing.Point(291, 0);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(93, 32);
+            this.lblPoints.TabIndex = 5;
+            this.lblPoints.Text = "Pontok:";
             // 
             // UCMain
             // 
@@ -177,5 +189,6 @@
         private Label label2;
         private TextBox tbCode;
         private TableLayoutPanel tLP;
+        private Label lblPoints;
     }
 }
