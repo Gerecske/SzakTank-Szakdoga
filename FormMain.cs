@@ -19,8 +19,8 @@ namespace SzakTank2._0
             InitializeComponent();
             //UCLR LogReg = new UCLR();
             //Controls.Add(LogReg);
-            UCMain Main = new UCMain("Gerecske");
-            Controls.Add(Main);
+            UCModeSelector ModeSelect = new UCModeSelector("Gerecske");
+            Controls.Add(ModeSelect);
         }
 
        

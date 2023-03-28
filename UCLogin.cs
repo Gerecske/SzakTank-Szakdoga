@@ -46,9 +46,9 @@ namespace SzakTank2._0
             if (dr.Read())
             {
                 MessageBox.Show("Sikeres bejelentkezés!");
-                
+
                 //if so, open the main form
-                UCMain Main = new UCMain(tBLUser.Text);
+                UCModeSelector Main = new UCModeSelector(tBLUser.Text);
                 Controls.Clear();
                 Controls.Add(Main);
             }
