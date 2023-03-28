@@ -183,7 +183,11 @@ namespace SzakTank2._0
                             MessageBox.Show("Nem megfelelő parancs! " + trimmedCommand.ToLower().Split('(')[0].Trim());
                             break;
                     }
+                    DrawTank(x, y, direction);
+                    
+                    
                 }
+
             }
             if (partsToGet == 0) // Found all the parts
             {
@@ -197,7 +201,7 @@ namespace SzakTank2._0
             }
             
             LogMoveToDB();
-            DrawTank(x, y, direction);
+            //DrawTank(x, y, direction);
 
             //MessageBox.Show($"Posi x: {x}, y: {y}, direction: {direction}");
 
