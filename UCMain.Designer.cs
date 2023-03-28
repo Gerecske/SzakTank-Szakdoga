@@ -38,8 +38,11 @@
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tLP = new System.Windows.Forms.TableLayoutPanel();
             this.lblPoints = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblMoves = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLP.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -142,7 +145,7 @@
             this.tLP.Controls.Add(this.button_RunCode, 0, 2);
             this.tLP.Controls.Add(this.label_Error, 1, 2);
             this.tLP.Controls.Add(this.fLP_Main, 1, 1);
-            this.tLP.Controls.Add(this.lblPoints, 1, 0);
+            this.tLP.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLP.Location = new System.Drawing.Point(0, 0);
             this.tLP.Name = "tLP";
@@ -150,6 +153,7 @@
             this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82F));
             this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tLP.Size = new System.Drawing.Size(720, 480);
             this.tLP.TabIndex = 2;
             // 
@@ -157,11 +161,38 @@
             // 
             this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPoints.Location = new System.Drawing.Point(291, 0);
+            this.lblPoints.Location = new System.Drawing.Point(3, 0);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(93, 32);
             this.lblPoints.TabIndex = 5;
             this.lblPoints.Text = "Pontok:";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.lblPoints, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblMoves, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(291, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(426, 37);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // lblMoves
+            // 
+            this.lblMoves.AutoSize = true;
+            this.lblMoves.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMoves.Location = new System.Drawing.Point(216, 0);
+            this.lblMoves.Name = "lblMoves";
+            this.lblMoves.Size = new System.Drawing.Size(105, 32);
+            this.lblMoves.TabIndex = 6;
+            this.lblMoves.Text = "Lépések:";
             // 
             // UCMain
             // 
@@ -174,6 +205,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tLP.ResumeLayout(false);
             this.tLP.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -190,5 +223,7 @@
         private TextBox tbCode;
         private TableLayoutPanel tLP;
         private Label lblPoints;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label lblMoves;
     }
 }

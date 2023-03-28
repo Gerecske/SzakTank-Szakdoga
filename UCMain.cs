@@ -24,6 +24,8 @@ namespace SzakTank2._0
         public int oldx = 0, oldy = 0;
         public int mapID;
         public int partCount = 0;
+        public int movesLeft = 21;
+        public int partsToGet = 0;
         public enum Direction { North, South, East, West };
         Direction direction = Direction.North;
         public UCMain(string User)
@@ -33,6 +35,9 @@ namespace SzakTank2._0
             UserName = User;
             setTankColor();
             DrawTank(0, 0, direction);
+
+            lblPoints.Text = "Pontok:" + partCount;
+            lblMoves.Text = "Lépések:" + movesLeft;
         }
 
         private void GenerateMap()
@@ -70,6 +75,7 @@ namespace SzakTank2._0
                         case < 50:
                             picTemp.BackColor = Color.Yellow; //PART 10%
                             mapValue[i] = 'P';
+                            partsToGet++;
                             break;
                         default:
                             picTemp.BackColor = Color.Green; // 50%
@@ -179,6 +185,17 @@ namespace SzakTank2._0
                     }
                 }
             }
+            if (partsToGet == 0) // Found all the parts
+            {
+                MessageBox.Show("Gratulálok az összes alkatrészt összeszedted!");
+                ResetWorolod();
+            }
+            if (movesLeft == 0) // No more moves left
+            {
+                MessageBox.Show($"Nincs több lépésed! De {partCount} alkatrészt találtál!");
+                ResetWorolod();
+            }
+            
             LogMoveToDB();
             DrawTank(x, y, direction);
 
@@ -276,8 +293,13 @@ namespace SzakTank2._0
         //    }
 
         //}
-        
-        
+
+        private void ResetWorolod()
+        {
+            UCMain Main = new UCMain(UserName);
+            Controls.Clear();
+            Controls.Add(Main);
+        }
 
         private void setTankColor()
         {
@@ -326,6 +348,7 @@ namespace SzakTank2._0
             picBoxT[x, y].Image = TankImgToUse;
             if (picBoxT[x, y].BackColor == Color.Yellow)
             {
+                partsToGet--;
                 partCount++;
                 lblPoints.Text = "Pontok:" + partCount;
                 picBoxT[x, y].BackColor = Color.Green;
@@ -337,6 +360,9 @@ namespace SzakTank2._0
                 picBoxT[x, y].BackColor = Color.Green;
             }
             oldx = x; oldy = y;
+
+            movesLeft--;
+            lblMoves.Text = "Lépések:" + movesLeft;
         }
 
         private void LogMoveToDB()

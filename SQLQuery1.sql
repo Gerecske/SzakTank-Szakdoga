@@ -1,0 +1,7 @@
+﻿CREATE TABLE Jatek (
+	JatekID INT NOT NULL IDENTITY,
+	TerkepID INT NOT NULL,
+	Felhasznalonev VARCHAR(30) NOT NULL,
+	Pont INT NOT NULL,
+	PRIMARY KEY (JatekID)
+);
