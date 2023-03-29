@@ -28,106 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_Code = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.fLP_Main = new System.Windows.Forms.FlowLayoutPanel();
-            this.label_Error = new System.Windows.Forms.Label();
-            this.button_RunCode = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tLPMain = new System.Windows.Forms.TableLayoutPanel();
+            this.fLPMain = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnRunCode = new System.Windows.Forms.Button();
+            this.lblCodeHeader = new System.Windows.Forms.Label();
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tLP = new System.Windows.Forms.TableLayoutPanel();
+            this.tLPStats = new System.Windows.Forms.TableLayoutPanel();
             this.lblPoints = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMoves = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tLPMain.SuspendLayout();
             this.tLP.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tLPStats.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tLPMain
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tLPMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox_Code, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tLPMain.ColumnCount = 2;
+            this.tLPMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tLPMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tLPMain.Location = new System.Drawing.Point(0, 0);
+            this.tLPMain.Name = "tLPMain";
+            this.tLPMain.RowCount = 2;
+            this.tLPMain.Size = new System.Drawing.Size(200, 100);
+            this.tLPMain.TabIndex = 0;
             // 
-            // textBox_Code
+            // fLPMain
             // 
-            this.textBox_Code.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.fLPMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Code.Location = new System.Drawing.Point(3, 3);
-            this.textBox_Code.Multiline = true;
-            this.textBox_Code.Name = "textBox_Code";
-            this.textBox_Code.Size = new System.Drawing.Size(74, 327);
-            this.textBox_Code.TabIndex = 0;
+            this.fLPMain.Location = new System.Drawing.Point(291, 46);
+            this.fLPMain.Name = "fLPMain";
+            this.fLPMain.Size = new System.Drawing.Size(426, 387);
+            this.fLPMain.TabIndex = 4;
             // 
-            // label1
+            // lblError
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 0;
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(291, 436);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 15);
+            this.lblError.TabIndex = 3;
             // 
-            // fLP_Main
+            // btnRunCode
             // 
-            this.fLP_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnRunCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fLP_Main.Location = new System.Drawing.Point(291, 46);
-            this.fLP_Main.Name = "fLP_Main";
-            this.fLP_Main.Size = new System.Drawing.Size(426, 387);
-            this.fLP_Main.TabIndex = 4;
+            this.btnRunCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRunCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRunCode.Location = new System.Drawing.Point(3, 439);
+            this.btnRunCode.Name = "btnRunCode";
+            this.btnRunCode.Size = new System.Drawing.Size(282, 38);
+            this.btnRunCode.TabIndex = 2;
+            this.btnRunCode.Text = "Futtatás";
+            this.btnRunCode.UseVisualStyleBackColor = true;
+            this.btnRunCode.Click += new System.EventHandler(this.btnRunCodeClick);
             // 
-            // label_Error
+            // lblCodeHeader
             // 
-            this.label_Error.AutoSize = true;
-            this.label_Error.Location = new System.Drawing.Point(291, 436);
-            this.label_Error.Name = "label_Error";
-            this.label_Error.Size = new System.Drawing.Size(0, 15);
-            this.label_Error.TabIndex = 3;
-            // 
-            // button_RunCode
-            // 
-            this.button_RunCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblCodeHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_RunCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_RunCode.Location = new System.Drawing.Point(3, 439);
-            this.button_RunCode.Name = "button_RunCode";
-            this.button_RunCode.Size = new System.Drawing.Size(282, 38);
-            this.button_RunCode.TabIndex = 2;
-            this.button_RunCode.Text = "Futtatás";
-            this.button_RunCode.UseVisualStyleBackColor = true;
-            this.button_RunCode.Click += new System.EventHandler(this.button_RunCode_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 43);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Kód:";
+            this.lblCodeHeader.AutoSize = true;
+            this.lblCodeHeader.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCodeHeader.Location = new System.Drawing.Point(3, 0);
+            this.lblCodeHeader.Name = "lblCodeHeader";
+            this.lblCodeHeader.Size = new System.Drawing.Size(282, 43);
+            this.lblCodeHeader.TabIndex = 1;
+            this.lblCodeHeader.Text = "Kód:";
             // 
             // tbCode
             // 
             this.tbCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCode.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tbCode.ForeColor = System.Drawing.Color.Black;
             this.tbCode.Location = new System.Drawing.Point(3, 46);
             this.tbCode.Multiline = true;
             this.tbCode.Name = "tbCode";
@@ -137,15 +119,16 @@
             // tLP
             // 
             this.tLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tLP.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tLP.ColumnCount = 2;
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tLP.Controls.Add(this.tbCode, 0, 1);
-            this.tLP.Controls.Add(this.label2, 0, 0);
-            this.tLP.Controls.Add(this.button_RunCode, 0, 2);
-            this.tLP.Controls.Add(this.label_Error, 1, 2);
-            this.tLP.Controls.Add(this.fLP_Main, 1, 1);
-            this.tLP.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tLP.Controls.Add(this.lblCodeHeader, 0, 0);
+            this.tLP.Controls.Add(this.lblError, 1, 2);
+            this.tLP.Controls.Add(this.fLPMain, 1, 1);
+            this.tLP.Controls.Add(this.tLPStats, 1, 0);
+            this.tLP.Controls.Add(this.btnRunCode, 0, 2);
             this.tLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLP.Location = new System.Drawing.Point(0, 0);
             this.tLP.Name = "tLP";
@@ -157,6 +140,23 @@
             this.tLP.Size = new System.Drawing.Size(720, 480);
             this.tLP.TabIndex = 2;
             // 
+            // tLPStats
+            // 
+            this.tLPStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tLPStats.ColumnCount = 2;
+            this.tLPStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLPStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLPStats.Controls.Add(this.lblPoints, 0, 0);
+            this.tLPStats.Controls.Add(this.lblMoves, 1, 0);
+            this.tLPStats.Location = new System.Drawing.Point(291, 3);
+            this.tLPStats.Name = "tLPStats";
+            this.tLPStats.RowCount = 1;
+            this.tLPStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tLPStats.Size = new System.Drawing.Size(426, 37);
+            this.tLPStats.TabIndex = 5;
+            // 
             // lblPoints
             // 
             this.lblPoints.AutoSize = true;
@@ -166,23 +166,6 @@
             this.lblPoints.Size = new System.Drawing.Size(93, 32);
             this.lblPoints.TabIndex = 5;
             this.lblPoints.Text = "Pontok:";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lblPoints, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lblMoves, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(291, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(426, 37);
-            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // lblMoves
             // 
@@ -201,29 +184,27 @@
             this.Controls.Add(this.tLP);
             this.Name = "UCMain";
             this.Size = new System.Drawing.Size(720, 480);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tLPMain.ResumeLayout(false);
+            this.tLPMain.PerformLayout();
             this.tLP.ResumeLayout(false);
             this.tLP.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tLPStats.ResumeLayout(false);
+            this.tLPStats.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private TextBox textBox_Code;
-        private Label label1;
-        private FlowLayoutPanel fLP_Main;
-        private Label label_Error;
-        private Button button_RunCode;
-        private Label label2;
+        private TableLayoutPanel tLPMain;
+        private FlowLayoutPanel fLPMain;
+        private Label lblError;
+        private Button btnRunCode;
+        private Label lblCodeHeader;
         private TextBox tbCode;
         private TableLayoutPanel tLP;
         private Label lblPoints;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tLPStats;
         private Label lblMoves;
     }
 }

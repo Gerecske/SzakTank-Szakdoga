@@ -12,7 +12,7 @@ namespace SzakTank2._0
 {
     public partial class UCModeSelector : UserControl
     {
-        private string User;
+        public string User;
         public UCModeSelector(string User)
         {
             InitializeComponent();

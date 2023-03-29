@@ -17,10 +17,12 @@ namespace SzakTank2._0
         public FormMain()
         {
             InitializeComponent();
-            //UCLR LogReg = new UCLR();
-            //Controls.Add(LogReg);
-            UCModeSelector ModeSelect = new UCModeSelector("Gerecske");
-            Controls.Add(ModeSelect);
+            UCLR LogReg = new UCLR();
+            Controls.Add(LogReg);
+
+
+            //UCMain Main = new UCMain("Gerecske");
+            //Controls.Add(Main);
         }
 
        

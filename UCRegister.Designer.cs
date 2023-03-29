@@ -31,24 +31,26 @@
             this.btnBackR = new System.Windows.Forms.Button();
             this.btnRegR = new System.Windows.Forms.Button();
             this.tBRPassA = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblRPassA = new System.Windows.Forms.Label();
             this.tBRUser = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRUser = new System.Windows.Forms.Label();
+            this.lblRPass = new System.Windows.Forms.Label();
             this.tBRPass = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblColor = new System.Windows.Forms.Label();
+            this.pnlColorPic = new System.Windows.Forms.Panel();
             this.rBYellow = new System.Windows.Forms.RadioButton();
             this.rBBlue = new System.Windows.Forms.RadioButton();
             this.rBRed = new System.Windows.Forms.RadioButton();
-            this.panel1.SuspendLayout();
+            this.pnlColorPic.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBackR
             // 
-            this.btnBackR.Location = new System.Drawing.Point(390, 267);
+            this.btnBackR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackR.Location = new System.Drawing.Point(630, 430);
             this.btnBackR.Name = "btnBackR";
-            this.btnBackR.Size = new System.Drawing.Size(54, 23);
+            this.btnBackR.Size = new System.Drawing.Size(90, 50);
             this.btnBackR.TabIndex = 8;
             this.btnBackR.Text = "Vissza";
             this.btnBackR.UseVisualStyleBackColor = true;
@@ -56,9 +58,11 @@
             // 
             // btnRegR
             // 
-            this.btnRegR.Location = new System.Drawing.Point(248, 267);
+            this.btnRegR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegR.Location = new System.Drawing.Point(0, 430);
             this.btnRegR.Name = "btnRegR";
-            this.btnRegR.Size = new System.Drawing.Size(83, 23);
+            this.btnRegR.Size = new System.Drawing.Size(90, 50);
             this.btnRegR.TabIndex = 8;
             this.btnRegR.Text = "Regisztrálás";
             this.btnRegR.UseVisualStyleBackColor = true;
@@ -66,79 +70,87 @@
             // 
             // tBRPassA
             // 
-            this.tBRPassA.Location = new System.Drawing.Point(344, 197);
+            this.tBRPassA.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBRPassA.Location = new System.Drawing.Point(344, 202);
             this.tBRPassA.Name = "tBRPassA";
             this.tBRPassA.PasswordChar = '*';
-            this.tBRPassA.Size = new System.Drawing.Size(100, 23);
+            this.tBRPassA.Size = new System.Drawing.Size(201, 39);
             this.tBRPassA.TabIndex = 6;
             // 
-            // label3
+            // lblRPassA
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 197);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Jelszó ismét:";
+            this.lblRPassA.AutoSize = true;
+            this.lblRPassA.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRPassA.Location = new System.Drawing.Point(156, 207);
+            this.lblRPassA.Name = "lblRPassA";
+            this.lblRPassA.Size = new System.Drawing.Size(147, 32);
+            this.lblRPassA.TabIndex = 7;
+            this.lblRPassA.Text = "Jelszó ismét:";
             // 
             // tBRUser
             // 
-            this.tBRUser.Location = new System.Drawing.Point(344, 123);
+            this.tBRUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBRUser.Location = new System.Drawing.Point(344, 120);
             this.tBRUser.Name = "tBRUser";
-            this.tBRUser.Size = new System.Drawing.Size(100, 23);
+            this.tBRUser.Size = new System.Drawing.Size(201, 39);
             this.tBRUser.TabIndex = 2;
             // 
-            // label1
+            // lblRUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 126);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Felhasználónév:";
+            this.lblRUser.AutoSize = true;
+            this.lblRUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRUser.Location = new System.Drawing.Point(156, 127);
+            this.lblRUser.Name = "lblRUser";
+            this.lblRUser.Size = new System.Drawing.Size(182, 32);
+            this.lblRUser.TabIndex = 3;
+            this.lblRUser.Text = "Felhasználónév:";
             // 
-            // label2
+            // lblRPass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(248, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Jelszó:";
+            this.lblRPass.AutoSize = true;
+            this.lblRPass.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRPass.Location = new System.Drawing.Point(156, 168);
+            this.lblRPass.Name = "lblRPass";
+            this.lblRPass.Size = new System.Drawing.Size(82, 32);
+            this.lblRPass.TabIndex = 5;
+            this.lblRPass.Text = "Jelszó:";
             // 
             // tBRPass
             // 
+            this.tBRPass.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tBRPass.Location = new System.Drawing.Point(344, 161);
             this.tBRPass.Name = "tBRPass";
             this.tBRPass.PasswordChar = '*';
-            this.tBRPass.Size = new System.Drawing.Size(100, 23);
+            this.tBRPass.Size = new System.Drawing.Size(201, 39);
             this.tBRPass.TabIndex = 4;
             // 
-            // label4
+            // lblColor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 237);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Szín:";
+            this.lblColor.AutoSize = true;
+            this.lblColor.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblColor.Location = new System.Drawing.Point(156, 249);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(62, 32);
+            this.lblColor.TabIndex = 9;
+            this.lblColor.Text = "Szín:";
             // 
-            // panel1
+            // pnlColorPic
             // 
-            this.panel1.Controls.Add(this.rBYellow);
-            this.panel1.Controls.Add(this.rBBlue);
-            this.panel1.Controls.Add(this.rBRed);
-            this.panel1.Location = new System.Drawing.Point(285, 226);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 39);
-            this.panel1.TabIndex = 10;
+            this.pnlColorPic.Controls.Add(this.rBYellow);
+            this.pnlColorPic.Controls.Add(this.rBBlue);
+            this.pnlColorPic.Controls.Add(this.rBRed);
+            this.pnlColorPic.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pnlColorPic.Location = new System.Drawing.Point(281, 242);
+            this.pnlColorPic.Name = "pnlColorPic";
+            this.pnlColorPic.Size = new System.Drawing.Size(264, 39);
+            this.pnlColorPic.TabIndex = 10;
             // 
             // rBYellow
             // 
             this.rBYellow.AutoSize = true;
-            this.rBYellow.Location = new System.Drawing.Point(104, 11);
+            this.rBYellow.Location = new System.Drawing.Point(169, 5);
             this.rBYellow.Name = "rBYellow";
-            this.rBYellow.Size = new System.Drawing.Size(54, 19);
+            this.rBYellow.Size = new System.Drawing.Size(91, 36);
             this.rBYellow.TabIndex = 2;
             this.rBYellow.Text = "Sárga";
             this.rBYellow.UseVisualStyleBackColor = true;
@@ -146,9 +158,9 @@
             // rBBlue
             // 
             this.rBBlue.AutoSize = true;
-            this.rBBlue.Location = new System.Drawing.Point(54, 10);
+            this.rBBlue.Location = new System.Drawing.Point(92, 5);
             this.rBBlue.Name = "rBBlue";
-            this.rBBlue.Size = new System.Drawing.Size(44, 19);
+            this.rBBlue.Size = new System.Drawing.Size(71, 36);
             this.rBBlue.TabIndex = 1;
             this.rBBlue.Text = "Kék";
             this.rBBlue.UseVisualStyleBackColor = true;
@@ -157,9 +169,9 @@
             // 
             this.rBRed.AutoSize = true;
             this.rBRed.Checked = true;
-            this.rBRed.Location = new System.Drawing.Point(3, 11);
+            this.rBRed.Location = new System.Drawing.Point(3, 3);
             this.rBRed.Name = "rBRed";
-            this.rBRed.Size = new System.Drawing.Size(51, 19);
+            this.rBRed.Size = new System.Drawing.Size(83, 36);
             this.rBRed.TabIndex = 0;
             this.rBRed.TabStop = true;
             this.rBRed.Text = "Piros";
@@ -169,20 +181,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label4);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.pnlColorPic);
+            this.Controls.Add(this.lblColor);
             this.Controls.Add(this.btnBackR);
             this.Controls.Add(this.btnRegR);
             this.Controls.Add(this.tBRPassA);
             this.Controls.Add(this.tBRPass);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRPassA);
+            this.Controls.Add(this.lblRPass);
             this.Controls.Add(this.tBRUser);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRUser);
             this.Name = "UCRegister";
             this.Size = new System.Drawing.Size(720, 480);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlColorPic.ResumeLayout(false);
+            this.pnlColorPic.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,13 +206,13 @@
         private Button btnBackR;
         private Button btnRegR;
         private TextBox tBRPassA;
-        private Label label3;
+        private Label lblRPassA;
         private TextBox tBRUser;
-        private Label label1;
-        private Label label2;
+        private Label lblRUser;
+        private Label lblRPass;
         private TextBox tBRPass;
-        private Label label4;
-        private Panel panel1;
+        private Label lblColor;
+        private Panel pnlColorPic;
         private RadioButton rBYellow;
         private RadioButton rBBlue;
         private RadioButton rBRed;

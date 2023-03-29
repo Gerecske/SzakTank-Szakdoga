@@ -31,16 +31,18 @@
             this.btnBackL = new System.Windows.Forms.Button();
             this.btnLoginL = new System.Windows.Forms.Button();
             this.tBLUser = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblLUser = new System.Windows.Forms.Label();
+            this.lblLPass = new System.Windows.Forms.Label();
             this.tBLPass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnBackL
             // 
-            this.btnBackL.Location = new System.Drawing.Point(459, 252);
+            this.btnBackL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackL.Location = new System.Drawing.Point(630, 430);
             this.btnBackL.Name = "btnBackL";
-            this.btnBackL.Size = new System.Drawing.Size(54, 23);
+            this.btnBackL.Size = new System.Drawing.Size(90, 50);
             this.btnBackL.TabIndex = 7;
             this.btnBackL.Text = "Vissza";
             this.btnBackL.UseVisualStyleBackColor = true;
@@ -48,9 +50,11 @@
             // 
             // btnLoginL
             // 
-            this.btnLoginL.Location = new System.Drawing.Point(264, 239);
+            this.btnLoginL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoginL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoginL.Location = new System.Drawing.Point(0, 430);
             this.btnLoginL.Name = "btnLoginL";
-            this.btnLoginL.Size = new System.Drawing.Size(75, 23);
+            this.btnLoginL.Size = new System.Drawing.Size(90, 50);
             this.btnLoginL.TabIndex = 6;
             this.btnLoginL.Text = "Bejelentkezés";
             this.btnLoginL.UseVisualStyleBackColor = true;
@@ -58,47 +62,52 @@
             // 
             // tBLUser
             // 
-            this.tBLUser.Location = new System.Drawing.Point(360, 162);
+            this.tBLUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBLUser.Location = new System.Drawing.Point(360, 139);
             this.tBLUser.Name = "tBLUser";
-            this.tBLUser.Size = new System.Drawing.Size(100, 23);
+            this.tBLUser.Size = new System.Drawing.Size(157, 39);
             this.tBLUser.TabIndex = 2;
             // 
-            // label5
+            // lblLUser
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 165);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Felhasználónév:";
+            this.lblLUser.AutoSize = true;
+            this.lblLUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLUser.Location = new System.Drawing.Point(172, 139);
+            this.lblLUser.Name = "lblLUser";
+            this.lblLUser.Size = new System.Drawing.Size(182, 32);
+            this.lblLUser.TabIndex = 3;
+            this.lblLUser.Text = "Felhasználónév:";
             // 
-            // label6
+            // lblLPass
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(264, 200);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 15);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Jelszó:";
+            this.lblLPass.AutoSize = true;
+            this.lblLPass.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLPass.Location = new System.Drawing.Point(272, 186);
+            this.lblLPass.Name = "lblLPass";
+            this.lblLPass.Size = new System.Drawing.Size(82, 32);
+            this.lblLPass.TabIndex = 5;
+            this.lblLPass.Text = "Jelszó:";
             // 
             // tBLPass
             // 
-            this.tBLPass.Location = new System.Drawing.Point(360, 200);
+            this.tBLPass.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBLPass.Location = new System.Drawing.Point(360, 186);
             this.tBLPass.Name = "tBLPass";
             this.tBLPass.PasswordChar = '*';
-            this.tBLPass.Size = new System.Drawing.Size(100, 23);
+            this.tBLPass.Size = new System.Drawing.Size(157, 39);
             this.tBLPass.TabIndex = 4;
             // 
             // UCLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.btnBackL);
             this.Controls.Add(this.btnLoginL);
             this.Controls.Add(this.tBLUser);
             this.Controls.Add(this.tBLPass);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblLUser);
+            this.Controls.Add(this.lblLPass);
             this.Name = "UCLogin";
             this.Size = new System.Drawing.Size(720, 480);
             this.ResumeLayout(false);
@@ -111,8 +120,8 @@
         private Button btnBackL;
         private Button btnLoginL;
         private TextBox tBLUser;
-        private Label label5;
-        private Label label6;
+        private Label lblLUser;
+        private Label lblLPass;
         private TextBox tBLPass;
     }
 }

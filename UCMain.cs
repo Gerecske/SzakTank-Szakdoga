@@ -66,15 +66,15 @@ namespace SzakTank2._0
                     {
                         case < 20:
                             picTemp.BackColor = Color.Red; // 20%
-                            mapValue[i] = 'B';
+                            mapValue[i] = 'R';
                             break;
                         case < 40:
                             picTemp.BackColor = Color.Black; // 20%
-                            mapValue[i] = 'R';
+                            mapValue[i] = 'B';
                             break;
                         case < 50:
                             picTemp.BackColor = Color.Yellow; //PART 10%
-                            mapValue[i] = 'P';
+                            mapValue[i] = 'Y';
                             partsToGet++;
                             break;
                         default:
@@ -94,7 +94,7 @@ namespace SzakTank2._0
 
 
 
-                fLP_Main.Controls.Add(picTemp);
+                fLPMain.Controls.Add(picTemp);
             }
 
             string StrMap = new string(mapValue);
@@ -110,7 +110,7 @@ namespace SzakTank2._0
             con.Close();
         }
 
-        private void button_RunCode_Click(object sender, EventArgs e)
+        private void btnRunCodeClick(object sender, EventArgs e)
         {
 
             string code = tbCode.Text;
