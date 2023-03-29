@@ -46,9 +46,11 @@
             // 
             // btnBackR
             // 
-            this.btnBackR.Location = new System.Drawing.Point(390, 267);
+            this.btnBackR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBackR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackR.Location = new System.Drawing.Point(630, 430);
             this.btnBackR.Name = "btnBackR";
-            this.btnBackR.Size = new System.Drawing.Size(54, 23);
+            this.btnBackR.Size = new System.Drawing.Size(90, 50);
             this.btnBackR.TabIndex = 8;
             this.btnBackR.Text = "Vissza";
             this.btnBackR.UseVisualStyleBackColor = true;
@@ -56,9 +58,11 @@
             // 
             // btnRegR
             // 
-            this.btnRegR.Location = new System.Drawing.Point(248, 267);
+            this.btnRegR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegR.Location = new System.Drawing.Point(0, 430);
             this.btnRegR.Name = "btnRegR";
-            this.btnRegR.Size = new System.Drawing.Size(83, 23);
+            this.btnRegR.Size = new System.Drawing.Size(90, 50);
             this.btnRegR.TabIndex = 8;
             this.btnRegR.Text = "Regisztrálás";
             this.btnRegR.UseVisualStyleBackColor = true;
@@ -66,60 +70,67 @@
             // 
             // tBRPassA
             // 
-            this.tBRPassA.Location = new System.Drawing.Point(344, 197);
+            this.tBRPassA.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBRPassA.Location = new System.Drawing.Point(344, 202);
             this.tBRPassA.Name = "tBRPassA";
             this.tBRPassA.PasswordChar = '*';
-            this.tBRPassA.Size = new System.Drawing.Size(100, 23);
+            this.tBRPassA.Size = new System.Drawing.Size(201, 39);
             this.tBRPassA.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 197);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(156, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 15);
+            this.label3.Size = new System.Drawing.Size(147, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "Jelszó ismét:";
             // 
             // tBRUser
             // 
-            this.tBRUser.Location = new System.Drawing.Point(344, 123);
+            this.tBRUser.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tBRUser.Location = new System.Drawing.Point(344, 120);
             this.tBRUser.Name = "tBRUser";
-            this.tBRUser.Size = new System.Drawing.Size(100, 23);
+            this.tBRUser.Size = new System.Drawing.Size(201, 39);
             this.tBRUser.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 126);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(156, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 15);
+            this.label1.Size = new System.Drawing.Size(182, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Felhasználónév:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(248, 161);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(156, 168);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.Size = new System.Drawing.Size(82, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "Jelszó:";
             // 
             // tBRPass
             // 
+            this.tBRPass.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tBRPass.Location = new System.Drawing.Point(344, 161);
             this.tBRPass.Name = "tBRPass";
             this.tBRPass.PasswordChar = '*';
-            this.tBRPass.Size = new System.Drawing.Size(100, 23);
+            this.tBRPass.Size = new System.Drawing.Size(201, 39);
             this.tBRPass.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 237);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(156, 249);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 15);
+            this.label4.Size = new System.Drawing.Size(62, 32);
             this.label4.TabIndex = 9;
             this.label4.Text = "Szín:";
             // 
@@ -128,17 +139,18 @@
             this.panel1.Controls.Add(this.rBYellow);
             this.panel1.Controls.Add(this.rBBlue);
             this.panel1.Controls.Add(this.rBRed);
-            this.panel1.Location = new System.Drawing.Point(285, 226);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel1.Location = new System.Drawing.Point(281, 242);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(159, 39);
+            this.panel1.Size = new System.Drawing.Size(264, 39);
             this.panel1.TabIndex = 10;
             // 
             // rBYellow
             // 
             this.rBYellow.AutoSize = true;
-            this.rBYellow.Location = new System.Drawing.Point(104, 11);
+            this.rBYellow.Location = new System.Drawing.Point(169, 5);
             this.rBYellow.Name = "rBYellow";
-            this.rBYellow.Size = new System.Drawing.Size(54, 19);
+            this.rBYellow.Size = new System.Drawing.Size(91, 36);
             this.rBYellow.TabIndex = 2;
             this.rBYellow.Text = "Sárga";
             this.rBYellow.UseVisualStyleBackColor = true;
@@ -146,9 +158,9 @@
             // rBBlue
             // 
             this.rBBlue.AutoSize = true;
-            this.rBBlue.Location = new System.Drawing.Point(54, 10);
+            this.rBBlue.Location = new System.Drawing.Point(92, 5);
             this.rBBlue.Name = "rBBlue";
-            this.rBBlue.Size = new System.Drawing.Size(44, 19);
+            this.rBBlue.Size = new System.Drawing.Size(71, 36);
             this.rBBlue.TabIndex = 1;
             this.rBBlue.Text = "Kék";
             this.rBBlue.UseVisualStyleBackColor = true;
@@ -157,9 +169,9 @@
             // 
             this.rBRed.AutoSize = true;
             this.rBRed.Checked = true;
-            this.rBRed.Location = new System.Drawing.Point(3, 11);
+            this.rBRed.Location = new System.Drawing.Point(3, 3);
             this.rBRed.Name = "rBRed";
-            this.rBRed.Size = new System.Drawing.Size(51, 19);
+            this.rBRed.Size = new System.Drawing.Size(83, 36);
             this.rBRed.TabIndex = 0;
             this.rBRed.TabStop = true;
             this.rBRed.Text = "Piros";
@@ -169,6 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBackR);

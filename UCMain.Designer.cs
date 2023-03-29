@@ -37,8 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tLP = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPoints = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPoints = new System.Windows.Forms.Label();
             this.lblMoves = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tLP.SuspendLayout();
@@ -101,6 +101,7 @@
             this.button_RunCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_RunCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_RunCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_RunCode.Location = new System.Drawing.Point(3, 439);
             this.button_RunCode.Name = "button_RunCode";
@@ -128,6 +129,8 @@
             this.tbCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCode.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tbCode.ForeColor = System.Drawing.Color.Black;
             this.tbCode.Location = new System.Drawing.Point(3, 46);
             this.tbCode.Multiline = true;
             this.tbCode.Name = "tbCode";
@@ -137,15 +140,16 @@
             // tLP
             // 
             this.tLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tLP.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tLP.ColumnCount = 2;
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tLP.Controls.Add(this.tbCode, 0, 1);
             this.tLP.Controls.Add(this.label2, 0, 0);
-            this.tLP.Controls.Add(this.button_RunCode, 0, 2);
             this.tLP.Controls.Add(this.label_Error, 1, 2);
             this.tLP.Controls.Add(this.fLP_Main, 1, 1);
             this.tLP.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.tLP.Controls.Add(this.button_RunCode, 0, 2);
             this.tLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLP.Location = new System.Drawing.Point(0, 0);
             this.tLP.Name = "tLP";
@@ -156,16 +160,6 @@
             this.tLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tLP.Size = new System.Drawing.Size(720, 480);
             this.tLP.TabIndex = 2;
-            // 
-            // lblPoints
-            // 
-            this.lblPoints.AutoSize = true;
-            this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPoints.Location = new System.Drawing.Point(3, 0);
-            this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(93, 32);
-            this.lblPoints.TabIndex = 5;
-            this.lblPoints.Text = "Pontok:";
             // 
             // tableLayoutPanel2
             // 
@@ -183,6 +177,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(426, 37);
             this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPoints.Location = new System.Drawing.Point(3, 0);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(93, 32);
+            this.lblPoints.TabIndex = 5;
+            this.lblPoints.Text = "Pontok:";
             // 
             // lblMoves
             // 

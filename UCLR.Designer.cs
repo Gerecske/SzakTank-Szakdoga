@@ -34,6 +34,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Location = new System.Drawing.Point(220, 243);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(280, 123);
@@ -44,6 +45,7 @@
             // 
             // btnReg
             // 
+            this.btnReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReg.Location = new System.Drawing.Point(220, 114);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(280, 123);
@@ -56,6 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnReg);
             this.Name = "UCLR";
