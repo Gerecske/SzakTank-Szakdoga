@@ -176,9 +176,9 @@ namespace SzakTank2._0
                                 MessageBox.Show("Nem tudsz tovább menni!");
                             }
                             break;
-                        case "lő":
-                            //Shoot(x, y, direction);
-                            break;
+                        //case "lő":
+                        //    //Shoot(x, y, direction);
+                        //    break;
                         default:
                             MessageBox.Show("Nem megfelelő parancs! " + trimmedCommand.ToLower().Split('(')[0].Trim());
                             break;
@@ -300,6 +300,9 @@ namespace SzakTank2._0
 
         private void ResetWorolod()
         {
+            LogEndToDB(UserName, mapID, partCount);
+
+            // Reset the world
             UCMain Main = new UCMain(UserName);
             Controls.Clear();
             Controls.Add(Main);
@@ -384,5 +387,18 @@ namespace SzakTank2._0
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        private void LogEndToDB(string UserName, int mapID, int partCount)
+        {
+            SqlConnection con = new SqlConnection(Resources.ConnString);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Jatek (TerkepID, Felhasznalonev, Pont) VALUES (@TerkepID, @Felhasznalonv, @Pont)", con);
+            cmd.Parameters.AddWithValue("@TerkepID", mapID);
+            cmd.Parameters.AddWithValue("@Felhasznalonv", UserName);
+            cmd.Parameters.AddWithValue("@Pont", partCount);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
     }
 }

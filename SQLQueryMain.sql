@@ -11,7 +11,7 @@ CREATE TABLE Jatekos (
 
 CREATE TABLE Terkep (
 	TerkepID INT NOT NULL IDENTITY,
-	Nev VARCHAR(30),
+	Nev VARCHAR(120),
 	TerkepMap INT,
 	Pont INT,
 	PRIMARY KEY (TerkepID)
